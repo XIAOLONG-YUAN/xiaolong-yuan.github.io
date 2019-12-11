@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[leetcode-合并两个有序链表]]></title>
+    <url>%2F2019%2F12%2F11%2Fleetcode-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[###题目 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。示例：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4 输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 第一种：迭代的方式 123456789101112131415161718192021222324public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123; if (null == l1 || null == l2) &#123; return null == l1 ? l2 : l1; &#125; // 存取结果 ListNode p = new ListNode(-1); // 记录p的开头位置 ListNode head = p; while(null != l1 &amp;&amp; null!= l2)&#123; if(l1.val &lt;= l2.val)&#123; p.next = l1; l1 = l1.next; &#125;else &#123; p.next = l2; l2 = l2.next; &#125; // 迭代下一个位置 p = p.next; &#125; // 最后判断为null的哪一个 p.next = (l1== null?l2:l1); return head.next; &#125; 第二种：递归的方式 123456789101112public ListNode mergeTwoLists_dfs(ListNode l1, ListNode l2) &#123; if (null == l1 || null == l2) &#123; return null == l1 ? l2 : l1; &#125; if(l1.val&lt;=l2.val)&#123; l1.next = mergeTwoLists_dfs(l1.next,l2); return l1; &#125;else&#123; l2.next = mergeTwoLists_dfs(l1,l2.next); return l2; &#125; &#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode-两数之和]]></title>
+    <url>%2F2019%2F10%2F09%2Fleetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[题目： 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 给定 nums = [2, 7, 11, 15], target = 9 因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1] 第一种方法：直接使用for循环进行暴力查询，但是用时比较长 12345678910111213141516int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123; int* res = (int*)malloc(sizeof(int)*2); *returnSize = 2; int i,j; for(i=0;i&lt;numsSize;i++)&#123; for(j=i+1;j&lt;numsSize;j++)&#123; if( (nums[i] +nums[j] )== target )&#123; res[0]=i; res[1]=j; //printf("%d %d \n",i,j); &#125; &#125; &#125; return res; &#125; 第二种方法： 使用链表的方式 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061typedef struct HashTable&#123; int key; //为总数(target)-num[i] = key;根据key进行查找链表 int value; //存储 num[i]的下标i struct HashTable *next; &#125;map; void insert_map(map *head,int key,int value)&#123; map* node=(map*)malloc(sizeof(map)); node-&gt;key = key; node-&gt;value = value; node-&gt;next = NULL; if(head-&gt;next == NULL)&#123; head-&gt;next = node; &#125;else&#123; map* temp = head; while(temp-&gt;next)&#123; temp= temp-&gt;next; &#125; temp-&gt;next = node; &#125;&#125;int find_map(int target,map *head)&#123; if (head-&gt;next == NULL) return -1; map *temp = head; while(temp-&gt;next)&#123; temp = temp-&gt;next; if(temp != NULL &amp;&amp; temp-&gt;key == target)&#123; return temp-&gt;value; &#125; &#125; return -1;&#125;/** * Note: The returned array must be malloced, assume caller calls free(). */int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123; int i,j; map *head = (map*)malloc(sizeof(map)); head-&gt;next = NULL; for(i=0;i&lt;numsSize;i++)&#123; int aPoint = find_map(nums[i],head); if( aPoint != -1 )&#123; int* res = (int*)malloc(sizeof(int)*2); res[0]= aPoint; res[1]= i; *returnSize = 2; return res; &#125;else&#123; int key = target - nums[i]; insert_map(head,key,i); &#125; &#125; *returnSize = 0; return NULL; &#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+</search>
