@@ -225,7 +225,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">2</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">3</span></a>
 
   </li>
       
@@ -296,6 +296,124 @@
           <div id="content" class="content">
             
   <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaolong.website/2019/12/12/leetcode-最长回文子串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="C'est la vie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/12/12/leetcode-最长回文子串/" class="post-title-link" itemprop="url">leetcode-最长回文子串</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-12-12 12:44:07 / Modified: 12:50:50" itemprop="dateCreated datePublished" datetime="2019-12-12T12:44:07+08:00">2019-12-12</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/12/12/leetcode-最长回文子串/" class="post-meta-item leancloud_visitors" data-flag-title="leetcode-最长回文子串" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/12/leetcode-最长回文子串/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/12/leetcode-最长回文子串/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>题目</strong></p><blockquote>
+<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。<br>示例 1：<br>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。<br>示例 2：<br>输入: “cbbd”<br>输出: “bb”</p>
+</blockquote><p>方法一： 中心扩展法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public static String longestPalindrome_center(String s) &#123;</span><br><span class="line">       int start = 0, end = 0;</span><br><span class="line"></span><br><span class="line">       for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">       // len1 表示以一个字节为中心</span><br><span class="line">       // len2 表示以两个字节为中心</span><br><span class="line">           int len1 = getPalinedromeLen(s, i, i);</span><br><span class="line">           int len2 = getPalinedromeLen(s, i, i+1);</span><br><span class="line">           int len = Math.max(len1,len2);</span><br><span class="line">           if(len&gt;(end-start))&#123;</span><br><span class="line">               start = i-(len-1)/2;</span><br><span class="line">               end = i+(len-1)/2;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       return s.substring(start, end+1);</span><br><span class="line">   &#125;</span><br><span class="line">  // 核心方法，判断当以一个子节为中心或两个字节为中心时，回文数的长度 </span><br><span class="line"> private static int getPalinedromeLen(String s, int left, int right) &#123;</span><br><span class="line">       int L = left, R = right;</span><br><span class="line">       while (L &gt;= 0 &amp;&amp; R &lt; s.length() &amp;&amp; s.charAt(L) == s.charAt(R)) &#123;</span><br><span class="line">           L--;</span><br><span class="line">           R++;</span><br><span class="line">       &#125;</span><br><span class="line">       return R - L - 1;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/12/12/leetcode-最长回文子串/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
         <article itemscope itemtype="http://schema.org/Article">
   
   
@@ -584,7 +702,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

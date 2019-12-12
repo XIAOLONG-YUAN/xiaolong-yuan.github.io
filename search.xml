@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode-最长回文子串]]></title>
+    <url>%2F2019%2F12%2F12%2Fleetcode-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[题目 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。示例 1：输入: “babad”输出: “bab”注意: “aba” 也是一个有效答案。示例 2：输入: “cbbd”输出: “bb” 方法一： 中心扩展法12345678910111213141516171819202122232425public static String longestPalindrome_center(String s) &#123; int start = 0, end = 0; for (int i = 0; i &lt; s.length(); i++) &#123; // len1 表示以一个字节为中心 // len2 表示以两个字节为中心 int len1 = getPalinedromeLen(s, i, i); int len2 = getPalinedromeLen(s, i, i+1); int len = Math.max(len1,len2); if(len&gt;(end-start))&#123; start = i-(len-1)/2; end = i+(len-1)/2; &#125; &#125; return s.substring(start, end+1); &#125; // 核心方法，判断当以一个子节为中心或两个字节为中心时，回文数的长度 private static int getPalinedromeLen(String s, int left, int right) &#123; int L = left, R = right; while (L &gt;= 0 &amp;&amp; R &lt; s.length() &amp;&amp; s.charAt(L) == s.charAt(R)) &#123; L--; R++; &#125; return R - L - 1; &#125; 方法二：动态规划 12345678910111213141516171819202122232425262728293031public static String longestPalindrome(String s) &#123; if (s.equals(&quot;&quot;)) &#123; return s; &#125; char[] chars = s.toCharArray(); int length = chars.length; int maxLen = 1; int start = 0; // 进行判断的二维数组 Boolean[][] booleans = new Boolean[length][length]; for (int i = 0; i &lt; length; i++) &#123; for (int j = 0; j &lt;= i; j++) &#123; // 如果间距小于2 if (i - j &lt; 2) &#123; booleans[j][i] = chars[j] == chars[i]; &#125; else &#123; booleans[j][i] = booleans[j + 1][i - 1] &amp;&amp; (chars[j] == chars[i]); &#125; if (booleans[j][i] &amp;&amp; (i - j + 1) &gt; maxLen) &#123; maxLen = i - j + 1; start = j; &#125; &#125; &#125; return s.substring(start, start + maxLen); &#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode-合并两个有序链表]]></title>
     <url>%2F2019%2F12%2F11%2Fleetcode-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[###题目 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。示例：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4 输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 第一种：迭代的方式 123456789101112131415161718192021222324public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123; if (null == l1 || null == l2) &#123; return null == l1 ? l2 : l1; &#125; // 存取结果 ListNode p = new ListNode(-1); // 记录p的开头位置 ListNode head = p; while(null != l1 &amp;&amp; null!= l2)&#123; if(l1.val &lt;= l2.val)&#123; p.next = l1; l1 = l1.next; &#125;else &#123; p.next = l2; l2 = l2.next; &#125; // 迭代下一个位置 p = p.next; &#125; // 最后判断为null的哪一个 p.next = (l1== null?l2:l1); return head.next; &#125; 第二种：递归的方式 123456789101112public ListNode mergeTwoLists_dfs(ListNode l1, ListNode l2) &#123; if (null == l1 || null == l2) &#123; return null == l1 ? l2 : l1; &#125; if(l1.val&lt;=l2.val)&#123; l1.next = mergeTwoLists_dfs(l1.next,l2); return l1; &#125;else&#123; l2.next = mergeTwoLists_dfs(l1,l2.next); return l2; &#125; &#125;]]></content>
