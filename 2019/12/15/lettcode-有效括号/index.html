@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="题目 给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串  方法一、  中心扩展法：  123456789101112131415161718192021222324252627282930313233343536373839404142434">
+  <meta name="description" content="题目  给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串   方法一、  中心扩展法：">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lettcode-有效括号">
 <meta property="og:url" content="https://www.xiaolong.website/2019/12/15/lettcode-有效括号/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="题目 给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串  方法一、  中心扩展法：  123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta property="og:description" content="题目  给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串   方法一、  中心扩展法：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-15T08:44:38.042Z">
+<meta property="og:updated_time" content="2019-12-28T11:08:59.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lettcode-有效括号">
-<meta name="twitter:description" content="题目 给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串  方法一、  中心扩展法：  123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta name="twitter:description" content="题目  给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串   方法一、  中心扩展法：">
   <link rel="canonical" href="https://www.xiaolong.website/2019/12/15/lettcode-有效括号/">
 
 
@@ -335,11 +335,19 @@
                 
               
 
-              <time title="Created: 2019-12-15 16:23:42 / Modified: 16:44:38" itemprop="dateCreated datePublished" datetime="2019-12-15T16:23:42+08:00">2019-12-15</time>
+              <time title="Created: 2019-12-15 16:23:42" itemprop="dateCreated datePublished" datetime="2019-12-15T16:23:42+08:00">2019-12-15</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-28 19:08:59" itemprop="dateModified" datetime="2019-12-28T19:08:59+08:00">2019-12-28</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -389,13 +397,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>题目</strong></p><blockquote>
+        <p><strong>题目</strong></p>
+<blockquote>
 <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串</p>
-</blockquote><ul>
+</blockquote>
+<ul>
 <li><p>方法一、</p>
 <blockquote>
 <p>中心扩展法：</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs undefined">/**  这里是用中心扩展法 找到回文的符号，<br>  *  然后通过把找到的回文符号 直接替换成为空格，<br>  *  然后再在剩下的字符中找，直到真个字符为空<br>  * @param s<br>  * @return<br>  */<br> public static boolean isValid(String s) &#123;<br>     if (s.length() % 2 != 0) return false;<br>     if (s.length() == 0 || &quot;&quot;.equals(s)) return true;<br>     int i= 0;<br>     String temp = s;<br>     for (i = 0; i &lt; temp.length(); i++) &#123;<br>         int len = centerExtend(temp, i, i + 1);<br>         if(len &gt;0)&#123;<br>             temp = temp.replace(temp.substring(i-len/2+1,i+len/2+1),&quot;&quot;);<br>             i=-1;<br>         &#125;<br>         if(temp.isEmpty())&#123;<br>             return true;<br>         &#125;<br><br>     &#125;<br>     return false;<br><br> &#125;<br><br> private static int centerExtend(String s, int start, int end) &#123;<br>     char[] chars = s.toCharArray();<br>     while(start &gt;= 0 &amp;&amp; end &lt; chars.length <br>            &amp;&amp; getOpposite(chars[start]) == chars[end]) &#123;<br>         start--;<br>         end++;<br>     &#125;<br>     return end - start - 1;<br><br> &#125;<br><br> private static char getOpposite(char c) &#123;<br>     switch (c) &#123;<br>         case &apos;(&apos;:<br>             return &apos;)&apos;;<br>         case &apos;&#123;&apos;:<br>             return &apos;&#125;&apos;;<br>         case &apos;[&apos;:<br>             return &apos;]&apos;;<br>     &#125;<br>     return &apos; &apos;;<br> &#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>方法二：</p>
@@ -403,9 +414,7 @@
 <p>使用堆</p>
 </blockquote>
 </li>
-</ul><a id="more"></a>
-
-
+</ul>
 <pre><code>/**
  * 通过堆的方法 进行匹配  先进后出
  */
