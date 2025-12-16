@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="A Poor Man">
 <meta property="og:description" content="为什么redis使用单线程反而更快？  内存操作： redis是一个内存数据，内存的读写数据天生就是快；  单线程模型： 单线程模型避免了多线程上下文切花带来的开销  采用事件驱动的IO多路复用模型： 事件驱动的IO多路复用模型结合了非阻塞IO和事件驱动的优点，非常适合处理大量并发连接的场景。通过事件循环和事件处理器的机制，能高效的管理多个IO流，同时避免了线程上下文切换的开销，是现代高性能服务器">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.apoorman.fun/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://www.apoorman.fun/images/redisDataType.png">
 <meta property="article:published_time" content="2024-07-19T10:27:08.000Z">
-<meta property="article:modified_time" content="2025-12-03T02:22:52.076Z">
+<meta property="article:modified_time" content="2025-12-16T08:07:28.010Z">
 <meta property="article:author" content="肥猫比特">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.apoorman.fun/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png">
+<meta name="twitter:image" content="https://www.apoorman.fun/images/redisDataType.png">
   
   
   
@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="/css/main.css?v=1.28.1">
 
   
-    <link rel="shortcut icon" href="https://cdn.apoorman.fun/blog/log.jpg">
+    <link rel="shortcut icon" href="/../images/log.jpg">
   
 
   
@@ -58,7 +58,7 @@
 <div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
 
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.apoorman.fun/blog/log.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">A Poor Man</div><div class="sub cap">纵有疾风起，人生不言弃</div></a></div></header>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="../images/log.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">A Poor Man</div><div class="sub cap">纵有疾风起，人生不言弃</div></a></div></header>
 
 <div class="nav-area">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
@@ -69,7 +69,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/post/88263074.html"><span class="title">Career planing</span></a><a class="item title" href="/post/57c5c5b7.html"><span class="title">The college student's guide to career planing</span></a><a class="item title" href="/post/fb4a51d.html"><span class="title">Part-Time job vs Focusing on studies 2.md</span></a><a class="item title" href="/post/df4c95f3.html"><span class="title">Part-Time job vs Focusing on studies</span></a><a class="item title" href="/post/e5126d48.html"><span class="title">Australia coffee chart</span></a><a class="item title" href="/post/4a17b156.html"><span class="title">hexo搭建博客流程</span></a><a class="item title" href="/post/e0f8559b.html"><span class="title">mysql面试题</span></a><a class="item title" href="/post/4370f109.html"><span class="title">redis面试题</span></a><a class="item title" href="/post/c3bc3481.html"><span class="title">个人能力演变讨论</span></a><a class="item title" href="/post/4d902e4f.html"><span class="title">JVM面试题</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/post/4370f109.html"><span class="title">redis面试题</span></a><a class="item title" href="/post/4a17b156.html"><span class="title">hexo搭建博客流程</span></a><a class="item title" href="/post/88263074.html"><span class="title">Career planing</span></a><a class="item title" href="/post/57c5c5b7.html"><span class="title">The college student's guide to career planing</span></a><a class="item title" href="/post/fb4a51d.html"><span class="title">Part-Time job vs Focusing on studies 2.md</span></a><a class="item title" href="/post/df4c95f3.html"><span class="title">Part-Time job vs Focusing on studies</span></a><a class="item title" href="/post/e5126d48.html"><span class="title">Australia coffee chart</span></a><a class="item title" href="/post/e0f8559b.html"><span class="title">mysql面试题</span></a><a class="item title" href="/post/c3bc3481.html"><span class="title">个人能力演变讨论</span></a><a class="item title" href="/post/4d902e4f.html"><span class="title">JVM面试题</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -82,7 +82,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/redis/">redis</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-19T10:27:08.000Z">2024-07-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-12-03T02:22:52.076Z">2025-12-03</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-19T10:27:08.000Z">2024-07-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-12-16T08:07:28.010Z">2025-12-16</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -117,7 +117,8 @@
 </blockquote>
 <h2 id="redis有哪些常用的数据类型？"><a href="#redis有哪些常用的数据类型？" class="headerlink" title="redis有哪些常用的数据类型？"></a>redis有哪些常用的数据类型？</h2><blockquote>
 <p>redis常用的数据类型有5种：String、List、Hash、Set、Sorted Set；如下图所示</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.apoorman.fun/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt="redis基础数据类型"></p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="../images/redisDataType.png">
+
 <ul>
 <li><p><strong>String</strong>:</p>
 <p>底层结构叫<strong>SDS（Simple Dynamic String）</strong>，是一个带长度信息的<strong>字节数组</strong>；规定字符串长度<strong>不得超过512M</strong>；当字符串长度小于或等于44时，使用<strong>embstr</strong>形式存储，大于44时，使用<strong>raw</strong>形式存储；</p>
