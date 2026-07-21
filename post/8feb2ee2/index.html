@@ -17,24 +17,25 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   
-  <title>reading  words4 - A Poor Man</title>
+  <title>excel把一列转换为一行字符串 - A Poor Man</title>
 
   
-    <meta name="description" content="animation [ˌænɪˈmeɪʃ(ə)n]  n. 活力，生气，热烈；动画片，动画游戏；动画制作  animation software 动画制作软件   decorate  [ˈdekəreɪt]  v. 装饰，装点；  Wednesdays [ˈwenzdeɪz]  adv. 每星期三  innate 英&#x2F;ɪˈneɪt&#x2F;  adj. 先天的，固有的；（信仰）根深蒂">
+    <meta name="description" content="1. 把Excel表格中一列数据转换为一行数据 &#x3D;TEXTJOIN(“,”,TRUE,”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“) 参数 1：A:A   要筛选的范围：整个 A 列 参数 2：A:A&lt;&gt;””  筛选条件：A 列不为空 参数 3：”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“  要拼接的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="reading  words4">
-<meta property="og:url" content="https://www.apoorman.fun/post/17c9a92d/index.html">
+<meta property="og:title" content="excel把一列转换为一行字符串">
+<meta property="og:url" content="https://www.apoorman.fun/post/8feb2ee2/index.html">
 <meta property="og:site_name" content="A Poor Man">
-<meta property="og:description" content="animation [ˌænɪˈmeɪʃ(ə)n]  n. 活力，生气，热烈；动画片，动画游戏；动画制作  animation software 动画制作软件   decorate  [ˈdekəreɪt]  v. 装饰，装点；  Wednesdays [ˈwenzdeɪz]  adv. 每星期三  innate 英&#x2F;ɪˈneɪt&#x2F;  adj. 先天的，固有的；（信仰）根深蒂">
+<meta property="og:description" content="1. 把Excel表格中一列数据转换为一行数据 &#x3D;TEXTJOIN(“,”,TRUE,”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“) 参数 1：A:A   要筛选的范围：整个 A 列 参数 2：A:A&lt;&gt;””  筛选条件：A 列不为空 参数 3：”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“  要拼接的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-01T14:20:24.000Z">
-<meta property="article:modified_time" content="2026-07-03T16:15:33.870Z">
+<meta property="article:published_time" content="2026-07-07T01:07:28.000Z">
+<meta property="article:modified_time" content="2026-07-21T14:08:15.048Z">
 <meta property="article:author" content="肥猫比特">
+<meta property="article:tag" content="excel">
 <meta name="twitter:card" content="summary">
   
   
   
-  
+  <meta name="keywords" content="excel,拼接sql">
 
   <!-- feed -->
   
@@ -77,210 +78,27 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-07-01T14:20:24.000Z">2026-07-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-07-03T16:15:33.870Z">2026-07-04</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/excel/">excel</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-07-07T01:07:28.000Z">2026-07-07</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-07-21T14:08:15.048Z">2026-07-21</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>reading  words4</span></h1>
+        <h1 class="text title"><span>excel把一列转换为一行字符串</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><ul>
-<li><p>animation [ˌænɪˈmeɪʃ(ə)n]  n. 活力，生气，热烈；动画片，动画游戏；<strong>动画制作</strong></p>
-<blockquote>
-<p>animation software 动画制作软件</p>
+  </div><article class="md-text content"><h3 id="1-把Excel表格中一列数据转换为一行数据"><a href="#1-把Excel表格中一列数据转换为一行数据" class="headerlink" title="1. 把Excel表格中一列数据转换为一行数据"></a>1. 把Excel表格中一列数据转换为一行数据</h3><ul>
+<li>&#x3D;TEXTJOIN(“,”,TRUE,”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“)<blockquote>
+<p>参数 1：A:A   要筛选的范围：整个 A 列</p>
+<p>参数 2：A:A&lt;&gt;””  筛选条件：A 列不为空</p>
+<p>参数 3：”‘“&amp;FILTER(A:A,A:A&lt;&gt;””)&amp;”‘“  要拼接的文本：单引号和 A 列不为空的值, 例如： ‘xxxxx’</p>
+<p>参数 4：”,”  拼接符：逗号</p>
+<p>参数 5：TRUE  是否保留空白：是</p>
 </blockquote>
 </li>
-<li><p>decorate  [ˈdekəreɪt]  v. 装饰，装点；</p>
-</li>
-<li><p>Wednesdays [ˈwenzdeɪz]  adv. 每星期三</p>
-</li>
-<li><p>innate 英&#x2F;ɪˈneɪt&#x2F;  adj. 先天的，固有的；（信仰）根深蒂固的</p>
-</li>
-<li><p>supplant 英&#x2F;səˈplɑːnt&#x2F;  v. 取代，代替</p>
-</li>
-<li><p>sought 英&#x2F;sɔːt&#x2F;  v. 寻找（seek 的过去式和过去分词）</p>
-</li>
-<li><p>quantify &#x2F;ˈkwɒntɪfaɪ&#x2F;  v. 量化；</p>
-<blockquote>
-<p>sought to quantify cognitive ability.   寻求量化认知能力</p>
-</blockquote>
-</li>
-<li><p>inherent  &#x2F;ɪnˈherənt&#x2F;  adj. 内在的，固有的； <strong>与生俱来的,天生的</strong></p>
-<blockquote>
-<p>the notion that inherent ability is destiny.  天赋就是命运的观念</p>
-</blockquote>
-</li>
-<li><p>hallway &#x2F;ˈhɔːlweɪ&#x2F;  n. （住宅的）门厅，（正门入口处的）走廊；（建筑物内的）过道</p>
-</li>
-<li><p>mindset   [ˈmaɪndset]  n. 观念模式，思维倾向</p>
-<blockquote>
-<p>Growth mindset theory  成长型思维理论</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>motivational &#x2F;ˌməʊtɪˈveɪʃən(ə)l&#x2F;  adj. 激发性的    eg: motivational posters   励志海报</p>
-</li>
-<li><p>coax &#x2F;kəʊks&#x2F; v. 哄，劝诱；</p>
-</li>
-<li><p><strong>indication</strong>  &#x2F;ˌɪndɪˈkeɪʃn&#x2F;   n. <strong>指示，标示</strong>；象征，暗示，迹象</p>
-<blockquote>
-<p>A major focus of the growth mindset in schools is <strong>coaxing</strong> students <strong>away from</strong> seeing failure as <strong>an indication of their ability</strong>,  and towards seeing it as a chance to improve that ability.  (学校推行成长型思维的核心重点，是引导学生不再将失败视为自身能力的体现，而是把它当作提升能力的契机。)</p>
-</blockquote>
-</li>
-<li><p>instill &#x2F;ɪnˈstɪl&#x2F;   vt. 徐徐滴入；<strong>逐渐灌输</strong></p>
-<blockquote>
-<p>instilled  灌输</p>
-</blockquote>
-</li>
-<li><p>former  &#x2F;ˈfɔːmə(r)&#x2F;   adj.（两者中）前者的</p>
-<blockquote>
-<p>the former <strong>took on</strong> only those <strong>tasks</strong> that would <strong>not risk their sense of worth</strong>. 前者只会承担那些对自身价值没有威胁的任务；</p>
-</blockquote>
-</li>
-<li><p>inferred  &#x2F;ɪnˈfɜːd&#x2F;  v. 推测（infer 的过去式和过去分词）</p>
-</li>
-<li><p>impediments &#x2F;[ɪmˈpedɪmənts]&#x2F; n. 障碍（impediment 的复数）；妨碍，困难</p>
-</li>
-<li><p><strong>be obsessed with sth</strong>   痴迷于什么</p>
-</li>
-<li><p>credit  [ˈkredɪt]  n. 信用，<strong>赞扬，</strong></p>
-<blockquote>
-<p> she deserves great credit for responding to it ；  她值得高度赞扬，因为她对此作出了回应。</p>
-</blockquote>
-</li>
-<li><p>adapt    [əˈdæpt]   v. 适应；<strong>调整</strong></p>
-<blockquote>
-<p>and adapting her work accordingly;  根据她的工作进行相应调整</p>
-</blockquote>
-</li>
-<li><p>misappropriate &#x2F;ˌmɪsəˈprəʊprieɪt&#x2F;  vt. 私吞，<strong>挪用</strong>，侵占</p>
-</li>
-<li><p>conflate &#x2F;kənˈfleɪt&#x2F; vt. 合并</p>
-<blockquote>
-<p>being conflated with … 与…. 混为一谈；  </p>
-<p>eg:  her theories are being misappropriated in schools by being conflated with the self-esteem movement;  在学校中他的理论被挪用为与自尊培养运动混为一谈；</p>
-</blockquote>
-</li>
-<li><p>correlation [ˌkɒrəˈleɪʃ(ə)n]  n. 相互关系，关联</p>
-</li>
-<li><p>genuine  [ˈdʒenjuɪn]  adj. 真正的</p>
-</li>
-<li><p>vague [veɪɡ]  adj. （形状）模糊的；</p>
-</li>
-<li><p>intervention &#x2F;ˌɪntəˈvenʃ(ə)n&#x2F; n. 干预，介入</p>
-</li>
-<li><p>elixir  [ɪˈlɪksə(r)] n. 灵丹妙药；</p>
-</li>
-<li><p>proponent [prəˈpəʊnənts] n. &lt;正式&gt;支持者，建议者</p>
-</li>
-<li><p>viable  &#x2F;ˈvaɪəb(ə)l&#x2F;  adj. 可望成功的，<strong>切实可行的</strong></p>
-</li>
-<li><p>via &#x2F;ˈvaɪə&#x2F;  prep. 经由，经过（某一地方）；通过，借助于（某种手段或人）</p>
-</li>
-<li><p>dispute &#x2F;dɪˈspjuːt&#x2F;  v. 对……提出质疑</p>
-<blockquote>
-<p>It is hard to <strong>dispute</strong> that <u>having faith in the capacity to change</u> is <u>a good attribute for students</u>.</p>
-</blockquote>
-</li>
-<li><p>paradoxically &#x2F;ˌpærəˈdɒksɪkli&#x2F;  adv. 自相矛盾地；似是而非地；反常地</p>
-</li>
-<li><p>aspiration &#x2F;ˌæspəˈreɪʃ(ə)n&#x2F; n. 渴望，抱负，</p>
-</li>
-<li><p>deluded &#x2F;dɪˈluːdɪd&#x2F;  adj. 轻信的；受蒙骗的 v. 欺骗；使失望（delude 的过去分词）</p>
-</li>
-<li><p>philosophy &#x2F;fəˈlɒsəfi&#x2F; n. 哲学；</p>
-</li>
-<li><p>encompass [ɪnˈkʌmpəs] v. 包含，包括；包围，环绕</p>
-</li>
-<li><p>toothpaste  [ˈtuːθpeɪst]  n. 牙膏</p>
-<blockquote>
-<p>paste  [peɪst]  n. 面糊，</p>
-</blockquote>
-</li>
-<li><p>aunt [ɑːnt] n. 姑妈，伯母</p>
-</li>
-<li><p>november [nəʊˈvembə(r)] n. 十一月</p>
-</li>
-<li><p>Tuesday 周二</p>
-</li>
-<li><p>Wednesday 周三</p>
-</li>
-<li><p>ramification [ˌræmɪfɪˈkeɪʃn]   n. （衍生的）结果、影响</p>
-</li>
-<li><p>community [kəˈmjuːnəti]  n. 社区，社会；</p>
-</li>
-<li><p>draft  [drɑːft] v. 起草，草拟；</p>
-</li>
-<li><p>rush   [rʌʃ]   n. （尤指一群人的）冲，奔；（空气、水等）湍流；匆忙，赶紧；</p>
-<blockquote>
-<p>gold rush  淘金热</p>
-</blockquote>
-</li>
-<li><p>regulatory [ˈreɡjələtəri]  adj. 管理的，控制的，监管的</p>
-<blockquote>
-<p>regulatory framework 监管框架</p>
-</blockquote>
-</li>
-<li><p>mining  [ˈmaɪnɪŋ]  n. 采矿，采矿业</p>
-<blockquote>
-<p>mine  [maɪn] v. 挖矿；开采；挖掘</p>
-</blockquote>
-</li>
-<li><p>indigenous  [ɪnˈdɪdʒənəs]  adj. 本土的，固有的</p>
-<blockquote>
-<p>indigenous people 原居住民</p>
-<p>inhabitant   [ɪnˈhæbɪtənt]  n. （某地的）居民，栖息动物</p>
-<p>inhabit   [ɪnˈhæbɪt]  v. 居住于，栖居在；</p>
-</blockquote>
-</li>
-<li><p>scramble [ˈskræmb(ə)l]  v. 争夺，抢夺</p>
-</li>
-<li><p>disregard [ˌdɪsrɪˈɡɑːd]  v. 忽视，轻视  </p>
-<blockquote>
-<p>ignore  [ɪɡˈnɔː(r)]  v. 不理睬；忽视，对……不予理会</p>
-</blockquote>
-</li>
-<li><p>journal   [ˈdʒɜːn(ə)l]  n. 杂志，期刊，报纸；日记;</p>
-</li>
-<li><p>grave  [ɡreɪv]  n. 坟墓，墓穴； adj. 严峻的，严重的；</p>
-</li>
-<li><p>home  [həʊm] n. 栖息地，居住地</p>
-</li>
-<li><p>discharge  [dɪsˈtʃɑːdʒ]  v. 释放，允许……离开；</p>
-</li>
-<li><p>disturb [dɪˈstɜːb] v. 打扰，妨碍；</p>
-</li>
-<li><p>deplete   [dɪˈpliːt] v. 大量减少，耗尽</p>
-</li>
-<li><p>assault  [əˈsɔːlt]  n. （军事）袭击，攻击；人身攻击</p>
-</li>
-<li><p>ore  [ɔː(r)]  n. 矿石，矿砂</p>
-</li>
-<li><p>excavate  [ˈekskəveɪt]  v. 发掘，挖掘（古物）；挖（洞），开凿</p>
-</li>
-<li><p>destructive [dɪˈstrʌktɪv]  adj. 破坏性的，毁灭性的</p>
-</li>
-<li><p>consume  [kənˈsjuːm] v. 消耗，消费；吃，喝；</p>
-</li>
-<li><p>bats [bæts]  n. 球拍；蝙蝠（bat 的复数）</p>
-</li>
-<li><p>as well as 以及</p>
-</li>
-<li><p>only by + 状语（部分倒装）</p>
-<blockquote>
-<p>Only by <u>arming themselves with an understanding of why butterfly number are down</u> can <u>conservations hope to halt or reverse the decline</u>. 只有通过理解蝴蝶数量下降的原因，保护者才能希望阻止或逆转这一趋势。</p>
-<p>halt [hɔːlt]  v. （使）停止行进；阻止。</p>
-</blockquote>
-</li>
-<li><p>reproduce   [ˌriːprəˈdjuːs]  v. 繁殖</p>
-</li>
-<li></li>
 </ul>
 
 <div class="article-footer fs14">
@@ -291,7 +109,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/post/2613c6ec/">readin skill</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/post/5b576bc6/">reading  words3</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/post/8b62036/">speaking1</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/post/2613c6ec/">readin skill</a></div></section></div>
 
 
 
@@ -301,7 +119,14 @@
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">肥猫比特</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel blur'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8A%8AExcel%E8%A1%A8%E6%A0%BC%E4%B8%AD%E4%B8%80%E5%88%97%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%B8%80%E8%A1%8C%E6%95%B0%E6%8D%AE"><span class="toc-text">1. 把Excel表格中一列数据转换为一行数据</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
