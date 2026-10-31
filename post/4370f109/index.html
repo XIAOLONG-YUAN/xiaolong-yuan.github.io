@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="A Poor Man">
 <meta property="og:description" content="为什么redis使用单线程反而更快？  内存操作： redis是一个内存数据，内存的读写数据天生就是快；  单线程模型： 单线程模型避免了多线程上下文切花带来的开销  采用事件驱动的IO多路复用模型： 事件驱动的IO多路复用模型结合了非阻塞IO和事件驱动的优点，非常适合处理大量并发连接的场景。通过事件循环和事件处理器的机制，能高效的管理多个IO流，同时避免了线程上下文切换的开销，是现代高性能服务器">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.apoorman.fun/post/images/redisDataType.png">
+<meta property="og:image" content="https://www.apoorman.fun/images/redisDataType.png">
 <meta property="article:published_time" content="2024-07-19T10:27:08.000Z">
-<meta property="article:modified_time" content="2026-03-16T14:05:34.338Z">
+<meta property="article:modified_time" content="2026-10-31T13:43:20.039Z">
 <meta property="article:author" content="肥猫比特">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.apoorman.fun/post/images/redisDataType.png">
+<meta name="twitter:image" content="https://www.apoorman.fun/images/redisDataType.png">
   
   
   
@@ -69,7 +69,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/post/b6326703/"><span class="title">太空旅行</span></a><a class="item title" href="/post/230926dd/"><span class="title">父亲婴儿假</span></a><a class="item title" href="/post/bfd9c74f/"><span class="title">竞争或合作</span></a><a class="item title" href="/post/cb9f31e8/"><span class="title">工资的9种理论</span></a><a class="item title" href="/post/e5126d48/"><span class="title">Australia coffee chart</span></a><a class="item title" href="/post/b0279f4c/"><span class="title">雅思大作文写作模板</span></a><a class="item title" href="/post/8feb2ee2/"><span class="title">excel把一列转换为一行字符串</span></a><a class="item title" href="/post/60ce99bb/"><span class="title">words5</span></a><a class="item title" href="/post/c7fe1d93/"><span class="title">conda 命令</span></a><a class="item title" href="/post/8f7dfd72/"><span class="title">小作文-模板</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/post/ff11178/"><span class="title">和家人旅行</span></a><a class="item title" href="/post/4370f109/"><span class="title">redis面试题</span></a><a class="item title" href="/post/b6326703/"><span class="title">太空旅行</span></a><a class="item title" href="/post/230926dd/"><span class="title">父亲婴儿假</span></a><a class="item title" href="/post/bfd9c74f/"><span class="title">竞争或合作</span></a><a class="item title" href="/post/cb9f31e8/"><span class="title">工资的9种理论</span></a><a class="item title" href="/post/e5126d48/"><span class="title">Australia coffee chart</span></a><a class="item title" href="/post/b0279f4c/"><span class="title">雅思大作文写作模板</span></a><a class="item title" href="/post/8feb2ee2/"><span class="title">excel把一列转换为一行字符串</span></a><a class="item title" href="/post/60ce99bb/"><span class="title">words5</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -82,7 +82,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/redis/">redis</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-19T10:27:08.000Z">2024-07-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-16T14:05:34.338Z">2026-03-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-19T10:27:08.000Z">2024-07-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-31T13:43:20.039Z">2026-10-31</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -117,7 +117,7 @@
 </blockquote>
 <h2 id="redis有哪些常用的数据类型？"><a href="#redis有哪些常用的数据类型？" class="headerlink" title="redis有哪些常用的数据类型？"></a>redis有哪些常用的数据类型？</h2><blockquote>
 <p>redis常用的数据类型有5种：String、List、Hash、Set、Sorted Set；如下图所示</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="../images/redisDataType.png">
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="../../images/redisDataType.png">
 
 <ul>
 <li><p><strong>String</strong>:</p>
